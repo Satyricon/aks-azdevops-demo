@@ -32,6 +32,7 @@ az aks get-credentials --resource-group demonstration --name kube-demo
     * change tag from BuildId to BuildNumber
 
 * Add Testing Stage
+```yaml
 - stage: Test
   displayName: Test stage
   jobs:
@@ -53,3 +54,4 @@ az aks get-credentials --resource-group demonstration --name kube-demo
       inputs:
         testRunner: JUnit
         testResultsFiles: '**/test-results.xml'
+```
