@@ -5,7 +5,7 @@ Example project to setup CI/CD pipeline for AKS based on Azure DevOps
 * Get AKS credentials
 az aks get-credentials --resource-group demonstration --name kube-meetup
 
-* Create new DevOps Project - kube-demo
+* Create new DevOps Project - kube-meetup
 
 * Create new git repo - backend
 
