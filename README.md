@@ -31,3 +31,25 @@ az aks get-credentials --resource-group demonstration --name kube-demo
     * give different name than azure-pipeline-1.yml
     * change tag from BuildId to BuildNumber
 
+* Add Testing Stage
+- stage: Test
+  displayName: Test stage
+  jobs:
+  - job: Test
+    displayName: Test
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: Npm@1
+      displayName: "NPM Install"
+      inputs:
+        command: 'install'
+
+    - script: npm test
+      displayName: "Run Tests"
+
+    - task: PublishTestResults@2
+      condition: succeededOrFailed()
+      inputs:
+        testRunner: JUnit
+        testResultsFiles: '**/test-results.xml'
