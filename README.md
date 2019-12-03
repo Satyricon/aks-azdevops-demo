@@ -67,6 +67,8 @@ az aks get-credentials --resource-group demonstration --name kube-demo
 
 * Add manual approval before deployment stage
 
+* Create ARM Service Connection
+
 * Create new Build pipeline based on release branch
   * give different name than azure-pipeline.yml - Backend CD pipeline
   * change tag from BuildId to BuildNumber
