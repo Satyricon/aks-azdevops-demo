@@ -11,27 +11,30 @@ az aks get-credentials --resource-group demonstration --name kube-demo
 
 * Import code from github - https://github.com/Satyricon/simple-node-backend
 
-* Setup Environments
-
 * Setup Build pipeline
-    * change environment to development.dev
-    * change tag from BuildId to BuildNumber
-    * rename pipeline to - Backend development - Build, push and deploy service
+  * change pipeline file name to test-build-push-deploy-pipeline.yml
+  * change tag from BuildId to BuildNumber
 
-* check created k8s Manifest files
-    * pay attention that image in deployment.yml does not have tag
+* Show automatically created Service Connections
+  * Explain how Kube Service connection is done using Service Account
 
-* change service.yml port from 8080 to 80
+* Show automatically created Environment
 
-* check deployment from Environments, go to logs
+* Rename pipeline to - Backend service - Test, build, push and deploy
 
-* create develop branch and change pipeline to be based on develop branch
+* Check deployment from Environments, go to logs
 
-* create new Build pipeline based on master branch
-    * give different name than azure-pipeline-1.yml
-    * change tag from BuildId to BuildNumber
+* Check Container Registry
+
+* Check created k8s Manifest files
+  * pay attention that image in deployment.yml does not have tag
+
+* Test deployment through browser (port 8080)
+
+* Change service.yml port from 8080 to 80
 
 * Add Testing Stage
+
 ```yaml
 - stage: Test
   displayName: Test stage
@@ -55,3 +58,15 @@ az aks get-credentials --resource-group demonstration --name kube-demo
         testRunner: JUnit
         testResultsFiles: '**/test-results.xml'
 ```
+
+* Check Tests tab
+
+* Fail the test
+
+* Fix the code and update text to "Hello Kubernetes meetup"
+
+* Add manual approval before deployment stage
+
+* Create new Build pipeline based on release branch
+  * give different name than azure-pipeline.yml - Backend CD pipeline
+  * change tag from BuildId to BuildNumber
